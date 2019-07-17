@@ -36,7 +36,7 @@ register(
     "python_fu_runway",
     "Process the selected layer in Runway",
     "Process the selected layer in Runway",
-    "Pavol Rusnak",
+    "Pavol Rusnak <pavol@rusnak.io>",
     "MIT License",
     "2019",
     "<Image>/Filters/Runway...",
