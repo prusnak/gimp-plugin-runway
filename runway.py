@@ -8,6 +8,7 @@ def python_runway(img, layer):
         raise ValueError("Expected RGB layer")
     # because pdb cannot save to a buffer, we have to use a temporary file instead
     f = tempfile.NamedTemporaryFile(suffix=".png", delete=False)
+    f.close()
     pdb.file_png_save(img, layer, f.name, f.name, 0, 9, 0, 0, 0, 0, 0)
     # convert data from file to base64 encoded bytes
     data = open(f.name, "rb").read()
@@ -22,6 +23,7 @@ def python_runway(img, layer):
     # save result to a temporary file, because pdb cannot load from a buffer
     jpg = base64.b64decode(resp["output"][22:])
     f = tempfile.NamedTemporaryFile(suffix=".jpg", delete=False)
+    f.close()
     open(f.name, "wb").write(jpg)
     # open the temp file
     image = pdb.gimp_file_load(f.name, f.name)
